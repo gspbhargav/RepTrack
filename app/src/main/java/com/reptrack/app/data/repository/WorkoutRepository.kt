@@ -4,7 +4,7 @@ import com.reptrack.app.data.db.*
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
-
+import kotlinx.coroutines.flow.first
 @Singleton
 class WorkoutRepository @Inject constructor(
     private val exerciseDefDao: ExerciseDefinitionDao,
@@ -50,13 +50,8 @@ class WorkoutRepository @Inject constructor(
 
     // --- Seed ---
     suspend fun seedIfEmpty() {
-        val exercises = exerciseDefDao.getAll()
-        var alreadySeeded = false
-        exercises.collect { list ->
-            alreadySeeded = list.isNotEmpty()
-            return@collect
-        }
-        if (alreadySeeded) return
+        val existing = exerciseDefDao.getAll().first()
+        if (existing.isNotEmpty()) return
 
         val exerciseIds = SeedData.exercises.map { exerciseDefDao.insert(it) }
         val templateIds = SeedData.templates.map { templateDao.insert(it) }

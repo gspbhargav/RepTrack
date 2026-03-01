@@ -7,6 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.reptrack.app.ui.home.HomeScreen
+import com.reptrack.app.ui.session.ActiveSessionScreen
+import com.reptrack.app.ui.exercise.ExerciseDetailScreen
 
 sealed class Screen(val route: String) {
     object Home : Screen("home")
@@ -34,7 +36,7 @@ fun RepTrackNavGraph(navController: NavHostController) {
             route = Screen.ActiveSession.route,
             arguments = listOf(navArgument("sessionId") { type = NavType.LongType })
         ) {
-            // ActiveSessionScreen(navController) — wired in Phase 6
+            ActiveSessionScreen(navController = navController)
         }
         composable(
             route = Screen.ExerciseDetail.route,
@@ -43,7 +45,7 @@ fun RepTrackNavGraph(navController: NavHostController) {
                 navArgument("exerciseDefId") { type = NavType.LongType }
             )
         ) {
-            // ExerciseDetailScreen(navController) — wired in Phase 7
+            ExerciseDetailScreen(navController = navController)
         }
         composable(Screen.TemplateList.route) {
             // TemplateListScreen(navController) — wired in Phase 8
