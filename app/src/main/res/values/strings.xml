@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">PulseB</string>
+    <string name="notification_channel_logging_name">Logging</string>
+    <string name="notification_channel_logging_desc">Background logging service</string>
+    <string name="notification_logging_title">PulseB</string>
+    <string name="notification_logging_text">Logging in progress</string>
+
+    <!-- Setup / permissions for popup when app is closed -->
+    <string name="setup_section_title">Popup when app is closed</string>
+    <string name="setup_section_hint">Enable these so the popup works every 15s:</string>
+    <string name="setup_display_over_other_apps">Display over other apps</string>
+    <string name="setup_display_over_other_apps_hint">Allow PulseB here so it can show the popup</string>
+    <string name="setup_alarms_reminders">Alarms &amp; reminders</string>
+    <string name="setup_alarms_reminders_hint">Allow exact alarms so the 15s popup runs on time</string>
+    <string name="setup_app_settings">App settings (Battery, Notifications)</string>
+    <string name="setup_app_settings_hint">Set Battery to Unrestricted; allow full-screen notifications</string>
+    <string name="setup_notification_settings">Notification settings</string>
+    <string name="setup_notification_settings_hint">Allow full-screen notifications for the popup</string>
 </resources>
